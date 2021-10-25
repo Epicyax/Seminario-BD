@@ -42,3 +42,14 @@ def crear_usuario(correo, contrasena):
         bd.commit()
 
         return True
+
+def iniciar_sesion(correo, contrasena):
+    h = hashlib.new('sha256', bytes(contrasena, 'utf-8'))
+    h = h.hexdigest()
+    query = "SELECT id FROM usuario WHERE correo = %s AND contrasena = %s"
+    cursor.execute(query, (correo, h))
+    id = cursor.fetchone()
+    if id:
+        return id[0], True
+    else:
+        return None, False
