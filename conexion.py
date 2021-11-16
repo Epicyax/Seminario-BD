@@ -82,8 +82,8 @@ def get_peliculas():
         pelicula = {
             'id': row[0],
             'titulo': row[1],
-            'fecha_visto': row[2],
-            'imagen': row[3],
+            'imagen': row[2],
+            'fecha_visto': row[3],
             'director': row[4],
             'anio': row[5]
         }
